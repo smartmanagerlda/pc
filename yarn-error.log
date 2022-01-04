@@ -1,0 +1,71 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add electron-updater
+
+PATH: 
+  /home/marc23/google-cloud-sdk/bin:/home/marc23/anaconda3/bin:/home/marc23/anaconda3/condabin:/home/marc23/.local/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/GitHub Desktop:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/marc23/.dotnet/tools:/home/marc23/flutter/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: read ENETUNREACH
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:209:20)
+
+npm manifest: 
+  {
+    "name": "stocks-manager-desktop",
+    "version": "1.0.0",
+    "description": "Sistema de Gestao de Empresas",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron .",
+      "dist": "electron-builder"
+    },
+    "type": "commonjs",
+    "author": "Smart Manager",
+    "license": "MIT",
+    "devDependencies": {
+      "chart.js": "^3.4.1",
+      "electron": "^13.6.3",
+      "electron-builder": "^22.11.7"
+    },
+    "dependencies": {
+      "@electron/remote": "^1.2.1",
+      "body-parser": "^1.19.0",
+      "cors": "^2.8.5",
+      "crypto-js": "^4.0.0",
+      "docxtemplater": "^3.22.2",
+      "electron-json-storage": "^4.5.0",
+      "electron-reload": "^1.5.0",
+      "express": "^4.17.1",
+      "express-validator": "^6.12.0",
+      "jquery": "^3.6.0",
+      "jspdf": "^2.3.1",
+      "pizzip": "^3.0.6",
+      "promise-mysql": "^5.0.3"
+    },
+    "build": {
+      "appId": "com.smartmanager",
+      "productName": "Smart Manager",
+      "target": "NSIS",
+      "directories": {
+        "output": "build"
+      },
+      "nsis": {
+        "allowToChangeInstallationDirectory": true,
+        "oneClick": false
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

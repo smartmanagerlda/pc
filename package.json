@@ -1,0 +1,62 @@
+{
+  "name": "stocks-manager-desktop",
+  "version": "1.0.0",
+  "description": "Sistema de Gestao de Empresas",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "deploy": "deploy-to-git",
+    "build-my-app": "a-build-script"
+  },
+  "type": "commonjs",
+  "author": "Smart Manager",
+  "license": "MIT",
+  "devDependencies": {
+    "chart.js": "^3.4.1",
+    "electron": "^13.6.3",
+    "electron-builder": "^22.11.7"
+  },
+  "dependencies": {
+    "@electron/remote": "^1.2.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "deploy-to-git": "^0.1.11",
+    "docxtemplater": "^3.22.2",
+    "electron-json-storage": "^4.5.0",
+    "electron-reload": "^1.5.0",
+    "electron-updater": "^4.6.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "jquery": "^3.6.0",
+    "jspdf": "^2.3.1",
+    "pizzip": "^3.0.6",
+    "promise-mysql": "^5.0.3"
+  },
+  "config": {
+    "deployToGit": {
+        "repository": "https://github.com/smartmanagerlda/SmartManagerDesktop.git",
+        "branch": "main",
+        "folder": "build",
+        "script": "npm run build-my-app",
+        "commit": "Automatic commit text",
+        "user": {
+            "email": "smartmanagerlda@gmail.com",
+            "name": "smartmanagerlda"
+        }
+    }
+  },
+  "build": {
+    "appId": "com.smartmanager",
+    "productName": "Smart Manager",
+    "target": "NSIS",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  }
+}

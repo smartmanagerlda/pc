@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Caixa</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="sugestao.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="p-1 mb-2 bg-gradient-primary text-white">
+        <nav>
+            <h6 class='text-center'><strong id="nomeEpresa23"></strong> <strong id='status'></strong></h6>
+        </nav>
+    </div>
+
+    <div class="container-fluid text-black">
+        <div class="p-1 mb-2 bg-primary text-white">
+            <div class="container text-black">
+                <div class="row">
+                    <div class="col-md text-center">
+                        <Strong id="operador23"></Strong>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6 id="hora"></h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6 id="day"></h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6 id="date"></h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6 id="vendaDiaria"></h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <a class="btn btn-primary" id="sairCaixa">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-black">
+        <div class="row">
+            <div class="col-sm">
+                <div class="p-1 mb-2 bg-gradient-primary text-white">
+                    <div class="container-fluid text-black">
+                        <div class="row">
+
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="servicoCotacao" data-toggle="modal"
+                                    data-target="#exampleModalServicos/Cotacoes">Serviços/Cotações</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="maisProduto" data-toggle="modal"
+                                    data-target="#exampleModalCenter">Adicionar Produto</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="confProduto" disabled>Confirmar
+                                    Produto</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="removProduto" data-toggle="modal"
+                                    data-target="#exampleModalCenter1" disabled>Remover Produto</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="cansCompra" disabled>Cancelar
+                                    Compra</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="finalCompra" disabled>Finalizar
+                                    Compra</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-primary" id="finalCotacao" disabled>Finalizar
+                                    Cotações</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-black">
+        <div class="p-1 mb-2 bg-primary text-white">
+            <div class="container text-black">
+                <div class="row">
+                    <div class="col-md text-center">
+                        <h6>Quant</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Cod</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Desc</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Desc%</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>IVA</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Preço/Un</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Preço Total</h6>
+                    </div>
+                    <div class="col-md text-center">
+                        <h6>Stock</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-black">
+        <div class="p-1 mb-2 bg-white text-white">
+            <div class="container text-black">
+                <div class="previw row">
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="quantStock" placeholder="Quant">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="codStock" placeholder="Cod">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="discStock" placeholder="Desc">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="discpStock" placeholder="Desc%">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="ivaStock" placeholder="IVA">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="precounStock" placeholder="Preço/Un">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="precotStock" placeholder="Preço T.">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" id="stockTotal11" placeholder="Stock T.">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container-fluid" role="main">
+        <div class="row">
+            <div class="col">
+                <div id="alertaSucesso">
+
+                </div>
+                <div class="text-center">
+                    <h6>Histórico de Vendas</h6>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="p-1 mb-2 mt-2 bg-gradient-primary text-white">
+                            <div class="container-fluid text-black">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <h6>Cod</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Produto</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Qant</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Desc</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Preço/Un</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Stock Total</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Total(IVA)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lista subcoll">
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <figure class="figure center-block">
+                                <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="container-fluid text-black">
+                        <div class="p-1 mb-2 mt-2 bg-gradient-primary text-white text-center">
+                            <h4>Recibo</h4>
+                            <h6><Strong id="nomeEpresa233"></Strong></h6>
+                            <h6>Avenida: <Strong id="avenidaLocalizacao23"></Strong></h6>
+                            <h6>Banco NIB: <Strong id="bancoNIB23"></Strong></h6>
+                            <h6>NUIT: <Strong id="empresaNUIT23"></Strong></h6>
+                            <div class="container-fluid text-black">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <h6>Produto</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Qant</h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6>Preço/Un</h6>
+                                    </div>
+                                    <!-- <div class="col-md">
+                                        <h6 id="stockTotal"></h6>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="recibo">
+                                <div class="container-fluid text-black">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6 id="Produto"></h6>
+                                        </div>
+                                        <div class="col-md">
+                                            <h6 id="Qant"></h6>
+                                        </div>
+                                        <div class="col-md">
+                                            <h6 id="Preço/Un"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <p><Strong>Total(IVA): </Strong><Strong id="total"></Strong></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalServicosCotacoes" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Novo Serviço/Cotação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-4" id="nomeClienteCaixa" placeholder="Nome do Cliente"
+                        required autofocus autocomplete="on">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="maisProdutoCaixa">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalServicosCotacoes2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-4" id="nomeClienteCotacao11a"
+                        placeholder="Nome do Cliente" required autofocus autocomplete="on">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="nomeClienteCotacao">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Novo Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="search-input form-control mb-4" id="codigo" placeholder="Nome" required
+                        autofocus autocomplete="off">
+                    <div class="suggestions">
+                    </div>
+                    <input type="number" class="form-control" id="quantidade" placeholder="Quantidade" required>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="addProduto">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Remover Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-4" id="rrNome" placeholder="Nome" required autofocus
+                        autocomplete="on">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="rrProduto">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Novo Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>O código do produto ou nome em falta...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Remover Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Nome do produto nao encontrado na lista de vendas actual!!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model -->
+    <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Recibo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="recibo23 modal-body">
+                    <div class="p-1 mb-2 mt-2 bg-white text-black">
+                        <div class="text-center">
+                            <h6><Strong id="nomeEpresa243"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>Avenida: <Strong id="avenidaLocalizacao243"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>Banco NIB: <Strong id="bancoNIB243"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>NUIT: <Strong id="empresaNUIT243"></Strong></h6>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-left">
+                                <Strong>Data: </Strong><Strong id="data23"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-left">
+                                <Strong>Operador: </Strong><Strong id="operador23e"></Strong>
+                            </div>
+                        </div>
+                        <div class="container-fluid text-black">
+                            <hr style="border-top: dotted 1px;" />
+                            <div class="row">
+                                <div class="col-md">
+                                    <h6>Cod</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Prod</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Qant</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Preço</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Unid</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Desc%</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Total</h6>
+                                </div>
+                            </div>
+                            <hr style="border-top: dotted 1px;" />
+                        </div>
+                        <div class="recibo24">
+                            <div class="container-fluid text-black">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <h6 id="Produto"></h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6 id="Qant"></h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6 id="Preço/Un"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total sem IVA: </Strong><Strong id="totalsemIva23"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total do IVA: </Strong><Strong id="totalIva23"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total do Desc: </Strong><Strong id="totalDesc23"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total: </Strong><Strong id="total23"></Strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="fecharRecibo" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model -->
+    <div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cotação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="recibo23 modal-body">
+                    <div class="p-1 mb-2 mt-2 bg-white text-black">
+                        <div class="text-center">
+                            <h6><Strong id="nomeEpresa243a"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>Avenida: <Strong id="avenidaLocalizacao243a"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>Banco NIB: <Strong id="bancoNIB243a"></Strong></h6>
+                        </div>
+                        <div class="text-center">
+                            <h6>NUIT: <Strong id="empresaNUIT243a"></Strong></h6>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-left">
+                                <Strong>Data: </Strong><Strong id="data23a"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-left">
+                                <Strong>Operador: </Strong><Strong id="operador23ea"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-left">
+                                <Strong>Cliente: </Strong><Strong id="nomeClienteCot"></Strong>
+                            </div>
+                        </div>
+                        <div class="container-fluid text-black">
+                            <hr style="border-top: dotted 1px;" />
+                            <div class="row">
+                                <div class="col-md">
+                                    <h6>Cod</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Prod</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Qant</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Preço</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Unid</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Desc%</h6>
+                                </div>
+                                <div class="col-md">
+                                    <h6>Total</h6>
+                                </div>
+                            </div>
+                            <hr style="border-top: dotted 1px;" />
+                        </div>
+                        <div class="recibo241">
+                            <div class="container-fluid text-black">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <h6 id="Produto"></h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6 id="Qant"></h6>
+                                    </div>
+                                    <div class="col-md">
+                                        <h6 id="Preço/Un"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total sem IVA: </Strong><Strong id="totalsemIva23a"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total do IVA: </Strong><Strong id="totalIva23a"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total do Desc: </Strong><Strong id="totalDesc23a"></Strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="text-right">
+                                <Strong>Total: </Strong><Strong id="total23a"></Strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="fecharCotacao" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Smart Manager 2021</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+</body>
+<!-- Bootstrap core JavaScript-->
+<script src="../src/vendor/jquery/jquery.min.js"></script>
+<script src="../src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../src/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../src/js/sb-admin-2.min.js"></script>
+
+<script src="../src/html2pdf.js-master/dist/html2pdf.bundle.min.js"></script>
+<script src="../src/js/renderer.js"></script>
+<script src="../src/js/caixa.js"></script>
+
+
+</html>
